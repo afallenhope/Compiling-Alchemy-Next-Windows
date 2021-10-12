@@ -57,7 +57,7 @@ Now we're ready to setup build environment
  ```powershell
   D:\> cd secondlife\viewers\tpv\alchemy-viewer\tools
   D:\secondlife\viewers\tpv\alchemy-viewer\tools\> pip3 install virtualenv
-  D:\secondlife\viewers\tpv\alchemy-viewer\tools\>virtualenv -p C:\python39 .venv
+  D:\secondlife\viewers\tpv\alchemy-viewer\tools\>virtualenv -p C:\python39\python.exe .venv
   D:\secondlife\viewers\tpv\alchemy-viewer\tools\>.\.venv\Scripts\activate
   ```
   
