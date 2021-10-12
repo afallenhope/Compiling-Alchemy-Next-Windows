@@ -32,7 +32,7 @@ At the "Install options" screen, select `Add CMake to the system PATH for all us
  
  ## Python
  Download: [Python](https://www.python.org/downloads/)
- Version: `3.7.9`
+ Version: `3.9.7`
  
  Use default options (path, components etc.) \*until\* you get to the `Customize Python` screen
  Change `Add python.exe to Path` to "Will be installed on local hard drive"
