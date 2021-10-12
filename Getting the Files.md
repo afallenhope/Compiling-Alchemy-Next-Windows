@@ -17,7 +17,7 @@ Options: `Desktop Development with C++`
  
  
  ## CMAKE
- Download: [CMAKE](https://github.com/Kitware/CMake/releases/download/v3.21.3/)
+ Download: [CMAKE](https://cmake.org/download/)
  Version: `3.21.3`*
  
 Latest version is fine, at the time of writing this that was the latest.
