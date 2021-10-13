@@ -171,7 +171,7 @@ Open Windows Terminal (or PowerShell 5.1)
 Navigate to your build environment, (tip: in Windows Explorer there's a `Copy path` option)
 
 ```powershell
-D:\secondlife\viewers\tpv\alchemy-viewer\alchemy-next> autobuild configure -c ReleaseOS -A 64 -- -DUSE_FMODSTUDIO=ON -DUSE_NVAPI=ON -DUSE_LTO=ON -DDISABLE_FATAL_WARNINGS=ON -DREVISION_FROM_VCS=FALSE
+D:\secondlife\viewers\tpv\alchemy-viewer\alchemy-next> autobuild configure -c ReleaseOS -A 64 -- -DUSE_FMODSTUDIO=ON -DUSE_NVAPI=ON -DUSE_LTO=ON -DDISABLE_FATAL_WARNINGS=ON -DREVISION_FROM_VCS=FALSE -DLL_TESTS=OFF
 D:\secondlife\viewers\tpv\alchemy-viewer\alchemy-next> autobuild build -c ReleaseOS -A 64 --no-configure
 ```
 
