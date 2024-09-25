@@ -54,3 +54,12 @@ Version: `R470`
 Download: [FMOD Engine](https://www.fmod.com/)
 Version: `2.02.03`
  
+
+## Table of Contents
+
+- [Preface](Preface.md)
+- [Environment](Environment.md)
+- [Getting the Files](Getting%20the%20Files.md)
+- [Grabbing the Source & Compile](Grabbing%20the%20Source%20%26%20Compile.md)
+- [Acknowledgments](Acknowledgements.md)
+

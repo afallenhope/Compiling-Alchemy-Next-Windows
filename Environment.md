@@ -23,3 +23,11 @@ Microsoft Visual Studio Community 2022
 Virtual Env
   -  I use this for controlling the versions so I don't much up other personal projects
 
+## Table of Contents
+
+- [Preface](Preface.md)
+- [Environment](Environment.md)
+- [Getting the Files](Getting%20the%20Files.md)
+- [Grabbing the Source & Compile](Grabbing%20the%20Source%20%26%20Compile.md)
+- [Acknowledgments](Acknowledgements.md)
+

@@ -7,10 +7,10 @@ Firstly, you'll want to setup a good workflow / directory structure.
 I chose the following structure.
 > D:\secondlife\viewers\tpv\alchemy-viewer
    this is the root
-   
+
 > D:\secondlife\viewers\tpv\alchemy-viewer\3p
    this houses all the 3rd party libraries (FMOD, NVAPI)
-   
+
 > D:\secondlife\viewers\tpv\alchem-viewer\tools
    this is for virtualenv
 
@@ -31,18 +31,18 @@ D:\> echo $env:PATH
 -  C:\Cygwin64\bin
 
 Note how  Cygwin is last. 
-   
+
  ## Setup Environment
  Open a terminal and create your environment mentioned above.
- 
+
  ```powershell
  D:\> mkdir -p secondlife\viewers\tpv\alchemy-viewer\3p
  D:\> mkdir -p secondlife\viewers\tpv\alchemy-viewer\tools
  ```
- 
- 
+
+
  **FIX YOUR LINE ENCODINGS FOR GIT**
- 
+
 When you use git for the first time it'll ask you to autoconvert line endings. Leave them as they are. If you didn't it's ok we can fix it.
 
 ```powershell
@@ -50,9 +50,9 @@ D:\> git config --global core.autocrlf false
 ```
 
 Now we're ready to setup build environment
- 
+
  ### VirtualEnv
- 
+
  You don't want to much up your other environments.
  ```powershell
   D:\> cd secondlife\viewers\tpv\alchemy-viewer\tools
@@ -60,29 +60,29 @@ Now we're ready to setup build environment
   D:\secondlife\viewers\tpv\alchemy-viewer\tools\>virtualenv -p C:\python39\python.exe .venv
   D:\secondlife\viewers\tpv\alchemy-viewer\tools\>.\.venv\Scripts\activate
   ```
-  
+
   ### Alchemy Autobuild
 You'll need RY3's special autobuild
   ```powershell
   D:\secondlife\viewers\tpv\alchemy-viewer\tools\>pip3 install --upgrade autobuild -i https://git.alchemyviewer.org/api/v4/projects/54/packages/pypi/simple 
  ```
- 
+
  ---
- 
+
  ## Building 3RD Party Libraries (optional)
- 
+
  ### NVAPI
  I had to use CYGWIN for this.
  Open Cygwin and navigate to your environment.
- 
+
  ```bash
 user@domain: ~$ cd /cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p
 user@domain:/cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p $ source ../tools/.venv/Scripts/activate
 user@domain:/cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p $ git clone https://git.alchemyviewer.org/alchemy/thirdparty/3p-nvapi
  ```
- 
+
  Once it's clone you want to put the `R470-developer.zip` you downloaded previously to the `nvapi` folder within the cloned directory.
- 
+
  ### Build NVAPI
  ```bash
 user@domain:/cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p 
@@ -94,11 +94,11 @@ $ autobuild build -A64 --all
 user@domain:/cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p/3p-nvapi 
 $ autobuild package -A64 --all
  ```
- 
+
  Once it builds it'll give you a hash and a location, make note of these we need them later
- 
+
   ### FMod
- 
+
  ```bash
  user@domain:/cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p/3p-nvapi 
  $ cd ..
@@ -106,9 +106,9 @@ $ autobuild package -A64 --all
 user@domain:/cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p 
 $ git clone https://git.alchemyviewer.org/alchemy/thirdparty/3p-fmodstudio
  ```
- 
+
  Once it's clone you want to put the `R470-developer.zip` you downloaded previously to the `nvapi` folder within the cloned directory.
- 
+
  ### Build FMod (audio)
  ```bash
 user@domain:/cygwindrive/d/secondlife/viewers/tpv/alchmey-viewer/3p 
@@ -122,14 +122,25 @@ $ autobuild package -A64 --all
  ```
  
  Once it builds it'll give you a hash and a path location, make note of these we need them later
- 
- 
+
  ## Include your 3rd party libs to autobuild
- 
+Jk
  Let's add our 3rd party libraries.
- 
+
+### Automatic Method
+
+This will automatically hash and place the file in the appropriate path.
+
+```powershell
+D:\secondlife\viewers\tpv\alchemy-viewr\alchemy-next>autobuild installables edit -a C:\secondlife\thirdparty\3p-fmodstudio\<file that was generated>
+```
+
+or if you want to manually provide the hash and the file you can go the manual route.
+
+### Manual Method
+
  Open `autobuild.xml` locate `<key>fmodstudio</key>` and look for the following chunk
- 
+
  ```xml
 <key>windows64</key>
                <map>
@@ -146,7 +157,7 @@ $ autobuild package -A64 --all
                   <string>windows64</string>
                 </map>
 ```
-	 
+
 Replace the hash with the appropriate hash that you wrote down and the url with `file:///PATHHERE`
 
 Repeat the process for NVAPI
@@ -171,8 +182,17 @@ Open Windows Terminal (or PowerShell 5.1)
 Navigate to your build environment, (tip: in Windows Explorer there's a `Copy path` option)
 
 ```powershell
-D:\secondlife\viewers\tpv\alchemy-viewer\alchemy-next> autobuild configure -c ReleaseOS -A 64 -- -DUSE_FMODSTUDIO=ON -DUSE_NVAPI=ON -DUSE_LTO=ON -DDISABLE_FATAL_WARNINGS=ON -DREVISION_FROM_VCS=FALSE -DLL_TESTS=OFF
+D:\secondlife\viewers\tpv\alchemy-viewer\alchemy-next> autobuild configure -c ReleaseOS -A 64 -- -DUSE_FMODSTUDIO=ON -DUSE_NVAPI=ON -DUSE_LTO=ON -DDISABLE_FATAL_WARNINGS=ON -DLL_TESTS=OFF
 D:\secondlife\viewers\tpv\alchemy-viewer\alchemy-next> autobuild build -c ReleaseOS -A 64 --no-configure
 ```
 
 If no errors popped up you've done it!
+
+## Table of Contents
+
+- [Preface](Preface.md)
+- [Environment](Environment.md)
+- [Getting the Files](Getting%20the%20Files.md)
+- [Grabbing the Source & Compile](Grabbing%20the%20Source%20%26%20Compile.md)
+- [Acknowledgments](Acknowledgements.md)
+
