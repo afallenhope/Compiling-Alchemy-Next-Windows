@@ -1,7 +1,8 @@
 # Compiling Alchemy Next on Windows
 
 This is an older guide and was initially created as there were many guides on how to compile Firestorm Viewer but not Alchemy
-These instructions are more-less historical and should follow the [official website](https://alchemyviewer.org/docs/build/Windows)'s build guide.
+
+These instructions are more-less historical, and you should follow the [official website](https://alchemyviewer.org/docs/build/Windows)'s build guide.
 
 ## Table of Contents
 - [Preface](Preface.md)
